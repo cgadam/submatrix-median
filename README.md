@@ -42,3 +42,6 @@ For the example shown above:
       - (6/2) - 1 = 2 => 7
   * Finally:
       - 8 + 7 = 15 / 2 = 7.5 ~ rounded down ~ (7)
+
+# Js Fiddle
+A hosted version of this problem can be found [here](https://jsfiddle.net/cgadam/byt66g33/)

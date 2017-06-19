@@ -1,7 +1,7 @@
 function MatrixView(selector){
   this._$root = $(selector);
   this._$generateButton = this._$root.find('#generateButton');
-  this._$selectSubMatrixButton = this._$root.find('#selectSubMatrix');
+  this._$selectSubMatrixButton = this._$root.find('#selectSubmatrix');
   this._$calculateMedianButton = this._$root.find('#calculateMedian');
   this._$rowCount = this._$root.find('#rowCount');
   this._$colCount = this._$root.find('#colCount');
