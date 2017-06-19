@@ -100,7 +100,7 @@ MatrixView.prototype._init = function(){
   this._$selectSubMatrixButton.click(function(){
 
     var maxRowCount = parseInt(self._query.$q0.attr('max')),
-      maxColCount = parseInt(self._query.$q2.attr('max'));
+      maxColCount = parseInt(self._query.$q1.attr('max'));
 
     var fromRow = parseInt(self._query.$q0.val()),
       fromCol = parseInt(self._query.$q1.val()),
