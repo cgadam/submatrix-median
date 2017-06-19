@@ -1,0 +1,67 @@
+#matrixConfig div{
+  margin-bottom: 10px;
+}
+
+#matrixContainer {
+  margin-top: 10px;
+}
+
+#queryContainer h3 {
+  display: inline;
+}
+
+.numInput {
+  width: 35px;
+  height: 35px;
+  margin: 5px;
+  text-align: right;
+  background-color: white;
+}
+
+#matrix {
+  text-align: center;
+}
+
+.numInput.selected {
+  background-color: greenyellow;
+}
+
+.median {
+  display: inline-block;
+  border: solid;
+  padding: 5px;
+  font-size: x-large;
+  width: 80px;
+  height: 50px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+.tab-content {
+  margin: 10px;
+}
+
+pre {
+  display: inline-block
+}
+
+p {
+  margin-top: 5px;
+}
+
+.mid-col {
+  width: 49%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.centeredDiv {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.panel-inline{
+  display: inline-block;
+}

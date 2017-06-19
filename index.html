@@ -1,0 +1,151 @@
+<html>
+
+  <head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"></link>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"></link>
+    <script lang="javascript" src="./js/matrix.js"></script>
+    <script lang="javascript">
+      window.onload = function () {
+        var controller = new MatrixController('#matrixView');
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id='matrixView'>
+      <div id="tabContainer" class="container">
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a href="#t1" data-toggle="tab">Problem statement</a>
+          </li>
+          <li>
+            <a href="#t2" data-toggle="tab">Solution</a>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane active" id="t1">
+            <p>Given a matrix full of integer values:</p>
+            <pre>1 2 3 4
+5 6 7 8
+9 1 2 3 
+1 5 9 8</pre>
+            <p> You are expected to receive queries like this one:</p>
+            <kbd>[2, 3, 4, 4]</kbd>
+            <p>Which actually specifies coordinates of a submatrix (one-based indexing) inside the former matrix.</p>
+            <p>In this case the submatrix ends up being:</p>
+            <pre>7 8
+2 3
+9 8</pre>
+            <p>The aim of the exercise is to calculate the "median" value of the elements inside the submatrix.</p>
+            <p>In order to do that, you should list the elements of the submatrix (in an orderded way):</p>
+            <pre>2, 3, 7, 8, 8, 9</pre>
+            <p>And:</p>
+            <ul>
+              <li>
+                If the length of the list is odd, then the "median" is the element at the length/2 position.
+              </li>
+              <li>
+                If the length of the list is even, then the "median" is the average beetwen the element at the length/2 position and the
+                one in the length/2 - 1 position. If the number is not integer you should round it down.
+              </li>
+            </ul>
+            <p>For the example shown above:</p>
+            <ul>
+              <li>
+                The lenght is 6.
+              </li>
+              <li>
+                As it's even, we'll use two elements of the array to calculate the median:
+                <ul>
+                  <li>
+                    6/2 = 3 => 8
+                  </li>
+                  <li>
+                    (6/2) - 1 = 2 => 7
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Finally:
+                <ul>
+                  <li>
+                    8 + 7 = 15 / 2 = 7.5 ~ rounded down ~ (7)
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tab-pane" id="t2">
+            <div class="container">
+              <div class="row">
+                <div class="col mid-col">
+                  <div class='panel panel-default panel-inline'>
+                    <div class="panel-heading">Matrix Config</div>
+                    <div class="panel-body">
+                      <div id='matrixConfig' class='form-group'>
+                        <label for='rowCount'>Row:</label>
+                        <input class='numInput' type='number' min='1' max='99' id='rowCount'></input>
+                        <label for='colCount'>Columns:</label>
+                        <input class='numInput' type='number' min='1' max='99' id='colCount'></input>
+                        <div class='centeredDiv'>
+                          <button class='btn btn-primary' id='generateButton'> Generate </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mid-col">
+                  <div class='panel panel-default panel-inline'>
+                    <div class="panel-heading">Query</div>
+                    <div class="panel-body">
+                      <div id='queryContainer'>
+                        <div>
+                          <h3>[</h3>
+                          <input class='numInput' type='number' id='q0'>
+                          <h3>,</h3>
+                          <input class='numInput' type='number' id='q1'>
+                          <h3>,</h3>
+                          <input class='numInput' type='number' id='q2'>
+                          <h3>,</h3>
+                          <input class='numInput' type='number' id='q3'>
+                          <h3>]</h3>
+                        </div>
+                        <div class='centeredDiv'>
+                          <button class='btn btn-primary' id='selectSubmatrix' disabled='disabled'> Select Submatrix </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class='panel panel-default'>
+                    <div class="panel-heading">Matrix</div>
+                    <div class="panel-body">
+                      <div class='centeredDiv' id='matrix'></div>
+                      <div class='centeredDiv'>
+                        <button class='btn btn-primary' id='calculateMedian' disabled='disabled'> Calculate Median </button>
+                      </div>
+                      <div class='centeredDiv'>
+                        <p class='lead'>The median is:</p>
+                        <div class='median'> - </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
